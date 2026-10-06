@@ -1,0 +1,2493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summit Digital | Website Design</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0b0b;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================
+           MAIN WEBSITE
+        ========================= */
+
+        #main-site {
+            display: block;
+        }
+
+        #main-site.hidden {
+            display: none;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(11, 11, 11, 0.92);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid #222;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #bdbdbd;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 25px;
+            background:
+                radial-gradient(circle at 80% 20%, #1d1d1d 0%, transparent 35%),
+                #0b0b0b;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+        }
+
+        .eyebrow {
+            color: #999;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            max-width: 850px;
+            font-size: clamp(48px, 8vw, 90px);
+            line-height: 0.98;
+            letter-spacing: -5px;
+            margin-bottom: 30px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #aaa;
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 22px;
+            border-radius: 7px;
+            border: 1px solid #333;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.25s;
+        }
+
+        .btn-primary {
+            background: white;
+            color: black;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            background: #ddd;
+        }
+
+        .btn-secondary:hover {
+            background: #1b1b1b;
+        }
+
+        section {
+            padding: 110px 25px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-label {
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: clamp(36px, 5vw, 60px);
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+
+        .section-text {
+            max-width: 650px;
+            color: #999;
+            font-size: 17px;
+        }
+
+        .services-grid {
+            margin-top: 55px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: #121212;
+            border: 1px solid #242424;
+            border-radius: 12px;
+            padding: 35px;
+            transition: 0.25s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #444;
+        }
+
+        .service-card h3 {
+            margin-bottom: 12px;
+            font-size: 21px;
+        }
+
+        .service-card p {
+            color: #999;
+            font-size: 15px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-boxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .about-box {
+            padding: 25px;
+            border: 1px solid #242424;
+            background: #121212;
+            border-radius: 10px;
+        }
+
+        .about-box h3 {
+            margin-bottom: 8px;
+        }
+
+        .about-box p {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .projects-grid {
+            margin-top: 55px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            position: relative;
+            min-height: 360px;
+            overflow: hidden;
+            border-radius: 14px;
+            border: 1px solid #292929;
+            cursor: pointer;
+            background: #111;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            min-height: 360px;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            background: linear-gradient(
+                transparent 25%,
+                rgba(0,0,0,0.85) 100%
+            );
+        }
+
+        .project-overlay small {
+            color: #bbb;
+            margin-bottom: 5px;
+        }
+
+        .project-overlay h3 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .project-overlay span {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            text-align: center;
+            background: #101010;
+        }
+
+        .contact .section-text {
+            margin: auto auto 30px;
+        }
+
+        .contact-form {
+            max-width: 750px;
+            margin: 45px auto 0;
+            text-align: left;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ddd;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 16px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            background: #151515;
+            color: white;
+            font-family: inherit;
+            font-size: 15px;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #777;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #666;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-submit {
+            border: none;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .form-submit:disabled {
+            opacity: 0.6;
+            cursor: wait;
+        }
+
+        .form-result {
+            margin-top: 20px;
+            font-size: 15px;
+            color: #aaa;
+        }
+
+        footer {
+            padding: 30px 25px;
+            border-top: 1px solid #222;
+            color: #666;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* =========================
+           PROJECT WEBSITE
+        ========================= */
+
+        #project-page {
+            display: none;
+            min-height: 100vh;
+            background: #f5f5f5;
+            color: #111;
+        }
+
+        #project-page.active {
+            display: block;
+        }
+
+        .project-content {
+            display: none;
+        }
+
+        .project-content.active {
+            display: block;
+        }
+
+        .concept-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 18px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .concept-brand {
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .concept-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .concept-links a {
+            font-size: 14px;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .concept-links a:hover {
+            color: #111;
+        }
+
+        .back-link {
+            color: #555 !important;
+            margin-right: 10px;
+        }
+
+        .concept-hero {
+            min-height: 80vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 50px;
+            padding: 80px 7%;
+        }
+
+        .concept-hero-text small {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            font-weight: 700;
+            opacity: 0.6;
+        }
+
+        .concept-hero h1 {
+            font-size: clamp(50px, 7vw, 90px);
+            line-height: 0.95;
+            letter-spacing: -5px;
+            margin: 20px 0;
+        }
+
+        .concept-hero p {
+            max-width: 550px;
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .concept-image {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .concept-section {
+            padding: 100px 7%;
+        }
+
+        .concept-section-inner {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .concept-section h2 {
+            font-size: clamp(38px, 5vw, 65px);
+            line-height: 1;
+            letter-spacing: -3px;
+            margin-bottom: 25px;
+        }
+
+        .concept-section p {
+            max-width: 700px;
+            color: #555;
+            font-size: 17px;
+        }
+
+        .concept-cards {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .concept-card {
+            padding: 35px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.7);
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .concept-card h3 {
+            margin-bottom: 12px;
+        }
+
+        .concept-card p {
+            font-size: 14px;
+        }
+
+        .concept-gallery {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            gap: 15px;
+        }
+
+        .concept-gallery img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 14px;
+        }
+
+        .concept-gallery img:first-child {
+            height: 615px;
+            grid-row: span 2;
+        }
+
+        .concept-cta {
+            margin: 80px auto 0;
+            max-width: 1100px;
+            padding: 70px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .concept-cta h2 {
+            margin-bottom: 15px;
+        }
+
+        .concept-cta p {
+            margin: 0 auto 25px;
+        }
+
+        .concept-footer {
+            padding: 30px 7%;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* =========================
+           EVERGREEN
+        ========================= */
+
+        #evergreen {
+            background: #f2f0e9;
+        }
+
+        #evergreen .concept-hero {
+            background: #263b2d;
+            color: white;
+        }
+
+        #evergreen .concept-hero p {
+            color: #d2d8d3;
+        }
+
+        #evergreen .concept-hero small {
+            color: #b8c9bc;
+        }
+
+        #evergreen .concept-section {
+            background: #f2f0e9;
+        }
+
+        #evergreen .concept-cta {
+            background: #263b2d;
+            color: white;
+        }
+
+        #evergreen .concept-cta p {
+            color: #d2d8d3;
+        }
+
+        #evergreen .concept-btn {
+            background: white;
+            color: #263b2d;
+        }
+
+        /* =========================
+           NORTH & CO
+        ========================= */
+
+        #north {
+            background: #f7f1e9;
+        }
+
+        #north .concept-hero {
+            background: #e4d2b7;
+        }
+
+        #north .concept-cta {
+            background: #24201d;
+            color: white;
+        }
+
+        #north .concept-cta p {
+            color: #ccc;
+        }
+
+        #north .concept-btn {
+            background: #e4d2b7;
+            color: #24201d;
+        }
+
+        /* =========================
+           FRAME STUDIO
+        ========================= */
+
+        #frame {
+            background: #eeeeee;
+        }
+
+        #frame .concept-hero {
+            background: #111;
+            color: white;
+        }
+
+        #frame .concept-hero p {
+            color: #aaa;
+        }
+
+        #frame .concept-hero small {
+            color: #aaa;
+        }
+
+        #frame .concept-cta {
+            background: #111;
+            color: white;
+        }
+
+        #frame .concept-cta p {
+            color: #aaa;
+        }
+
+        #frame .concept-btn {
+            background: white;
+            color: #111;
+        }
+
+        /* =========================
+           APEX PROJECTS
+        ========================= */
+
+        #apex {
+            background: #e9e9e7;
+        }
+
+        #apex .concept-hero {
+            background: #202124;
+            color: white;
+        }
+
+        #apex .concept-hero p {
+            color: #bbb;
+        }
+
+        #apex .concept-hero small {
+            color: #aaa;
+        }
+
+        #apex .concept-cta {
+            background: #202124;
+            color: white;
+        }
+
+        #apex .concept-cta p {
+            color: #bbb;
+        }
+
+        #apex .concept-btn {
+            background: white;
+            color: #202124;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .services-grid,
+            .projects-grid,
+            .concept-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .concept-nav {
+                padding: 15px;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .concept-links {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .back-link {
+                margin-right: 0;
+            }
+
+            .concept-hero {
+                grid-template-columns: 1fr;
+                padding: 60px 6%;
+            }
+
+            .concept-image {
+                height: 400px;
+            }
+
+            .concept-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .concept-gallery img,
+            .concept-gallery img:first-child {
+                height: 300px;
+                grid-row: auto;
+            }
+
+            .concept-cta {
+                padding: 45px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     MAIN SUMMIT DIGITAL SITE
+========================= -->
+
+<div id="main-site">
+
+    <header>
+        <nav class="nav">
+
+            <a href="#top" class="logo">
+                Summit Digital
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Get Started</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <main id="top">
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    Web Design & Development
+                </div>
+
+                <h1>
+                    Websites built to move your business forward.
+                </h1>
+
+                <p>
+                    Summit Digital creates clean, modern and professional
+                    websites for businesses that want a stronger online presence.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#contact" class="btn btn-primary">
+                        Start a Project
+                    </a>
+
+                    <a href="#services" class="btn btn-secondary">
+                        Explore Services
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SERVICES -->
+
+        <section id="services">
+
+            <div class="container">
+
+                <div class="section-label">
+                    What we do
+                </div>
+
+                <h2 class="section-title">
+                    Built around your business.
+                </h2>
+
+                <p class="section-text">
+                    Everything you need for a professional website that looks
+                    great and works properly across devices.
+                </p>
+
+
+                <div class="services-grid">
+
+                    <div class="service-card">
+
+                        <h3>
+                            Website Design
+                        </h3>
+
+                        <p>
+                            Clean, modern websites designed around your
+                            business and your customers.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card">
+
+                        <h3>
+                            Mobile Friendly
+                        </h3>
+
+                        <p>
+                            Websites designed to look great on phones,
+                            tablets and computers.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card">
+
+                        <h3>
+                            Business Websites
+                        </h3>
+
+                        <p>
+                            Professional online spaces designed to help
+                            businesses build credibility.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section id="about">
+
+            <div class="container about-grid">
+
+                <div>
+
+                    <div class="section-label">
+                        About Summit Digital
+                    </div>
+
+                    <h2 class="section-title">
+                        Simple websites. Serious results.
+                    </h2>
+
+                    <p class="section-text">
+                        Summit Digital creates professional websites for
+                        businesses that want to stand out online.
+                        Every website is designed to be modern, simple
+                        and easy to use.
+                    </p>
+
+                </div>
+
+
+                <div class="about-boxes">
+
+                    <div class="about-box">
+
+                        <h3>
+                            Modern Design
+                        </h3>
+
+                        <p>
+                            Clean layouts and modern visual styles.
+                        </p>
+
+                    </div>
+
+
+                    <div class="about-box">
+
+                        <h3>
+                            Responsive
+                        </h3>
+
+                        <p>
+                            Designed for phones, tablets and desktops.
+                        </p>
+
+                    </div>
+
+
+                    <div class="about-box">
+
+                        <h3>
+                            Simple
+                        </h3>
+
+                        <p>
+                            Easy-to-use websites without unnecessary clutter.
+                        </p>
+
+                    </div>
+
+
+                    <div class="about-box">
+
+                        <h3>
+                            Business Focused
+                        </h3>
+
+                        <p>
+                            Built to give your business a professional online presence.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROJECTS -->
+
+        <section id="projects">
+
+            <div class="container">
+
+                <div class="section-label">
+                    Selected concepts
+                </div>
+
+                <h2 class="section-title">
+                    See what we can build.
+                </h2>
+
+                <p class="section-text">
+                    Explore example website concepts created by Summit Digital.
+                </p>
+
+
+                <div class="projects-grid">
+
+
+                    <div class="project-card"
+                         onclick="openProject('evergreen')">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1200&q=80"
+                            alt="Landscaping concept"
+                        >
+
+                        <div class="project-overlay">
+
+                            <small>
+                                Website Concept
+                            </small>
+
+                            <h3>
+                                Evergreen Landscapes
+                            </h3>
+
+                            <span>
+                                Landscaping business →
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="project-card"
+                         onclick="openProject('north')">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80"
+                            alt="Cafe concept"
+                        >
+
+                        <div class="project-overlay">
+
+                            <small>
+                                Website Concept
+                            </small>
+
+                            <h3>
+                                North & Co. Cafe
+                            </h3>
+
+                            <span>
+                                Hospitality business →
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="project-card"
+                         onclick="openProject('frame')">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1452780212940-6f5c0d14d848?auto=format&fit=crop&w=1200&q=80"
+                            alt="Photography studio concept"
+                        >
+
+                        <div class="project-overlay">
+
+                            <small>
+                                Website Concept
+                            </small>
+
+                            <h3>
+                                Frame Studio
+                            </h3>
+
+                            <span>
+                                Creative business →
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="project-card"
+                         onclick="openProject('apex')">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80"
+                            alt="Construction concept"
+                        >
+
+                        <div class="project-overlay">
+
+                            <small>
+                                Website Concept
+                            </small>
+
+                            <h3>
+                                Apex Projects
+                            </h3>
+
+                            <span>
+                                Trades business →
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section id="contact" class="contact">
+
+            <div class="container">
+
+                <div class="section-label">
+                    Start a project
+                </div>
+
+                <h2 class="section-title">
+                    Let's build something great.
+                </h2>
+
+                <p class="section-text">
+                    Tell us a little about your business and what you're
+                    looking for. We'll get back to you as soon as possible.
+                </p>
+
+
+                <form
+                    action="https://api.web3forms.com/submit"
+                    method="POST"
+                    class="contact-form"
+                    onsubmit="handleFormSubmit(event)"
+                >
+
+                    <input
+                        type="hidden"
+                        name="access_key"
+                        value="c0586a36-aece-4060-b16b-eaeb3daa8b59"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="subject"
+                        value="New Summit Digital Website Enquiry"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="from_name"
+                        value="Summit Digital Website"
+                    >
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Your Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="John Smith"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="john@example.com"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="business">
+                            Business Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="business"
+                            name="business"
+                            placeholder="Your Business"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="service">
+                            What do you need?
+                        </label>
+
+                        <select
+                            id="service"
+                            name="service"
+                            required
+                        >
+
+                            <option value="">
+                                Select an option
+                            </option>
+
+                            <option value="New Website">
+                                New Website
+                            </option>
+
+                            <option value="Website Redesign">
+                                Website Redesign
+                            </option>
+
+                            <option value="Business Website">
+                                Business Website
+                            </option>
+
+                            <option value="Other">
+                                Something Else
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Tell us about your project
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="6"
+                            placeholder="Tell us about your business and what you'd like your website to do..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary form-submit"
+                        id="submit-button"
+                    >
+                        Send Enquiry
+                    </button>
+
+
+                    <div
+                        id="form-result"
+                        class="form-result"
+                    ></div>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        Summit Digital | Website Design
+    </footer>
+
+</div>
+
+
+<!-- =========================
+     PROJECT WEBSITES
+========================= -->
+
+<div id="project-page">
+
+
+    <!-- EVERGREEN LANDSCAPES -->
+
+    <div id="evergreen" class="project-content">
+
+        <nav class="concept-nav">
+
+            <a href="#"
+               class="concept-brand"
+               onclick="showMainSite(); return false;">
+                Evergreen
+            </a>
+
+            <ul class="concept-links">
+
+                <li>
+                    <a href="#"
+                       class="back-link"
+                       onclick="showMainSite(); return false;">
+                        ← Back
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#evergreen-home">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#evergreen-services">
+                        Services
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#evergreen-about">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#evergreen-gallery">
+                        Gallery
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#evergreen-contact">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <section id="evergreen-home"
+                 class="concept-hero">
+
+            <div class="concept-hero-text">
+
+                <small>
+                    Website Concept
+                </small>
+
+                <h1>
+                    Outdoor spaces,
+                    beautifully built.
+                </h1>
+
+                <p>
+                    Evergreen Landscapes creates considered outdoor spaces
+                    designed to be enjoyed for years.
+                </p>
+
+                <a href="#evergreen-contact"
+                   class="btn concept-btn">
+                    Start a project
+                </a>
+
+            </div>
+
+
+            <img
+                class="concept-image"
+                src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1400&q=80"
+                alt="Evergreen landscape"
+            >
+
+        </section>
+
+
+        <section id="evergreen-services"
+                 class="concept-section">
+
+            <div class="concept-section-inner">
+
+                <h2>
+                    From first idea
+                    to finished space.
+                </h2>
+
+                <p>
+                    We combine practical landscaping with thoughtful design
+                    to create outdoor spaces that look great and work for
+                    everyday life.
+                </p>
+
+
+                <div class="concept-cards">
+
+                    <div class="concept-card">
+                        <h3>
+                            Landscape Design
+                        </h3>
+
+                        <p>
+                            Plans and ideas designed around your property,
+                            lifestyle and vision.
+                        </p>
+                    </div>
+
+
+                    <div class="concept-card">
+                        <h3>
+                            Garden Construction
+                        </h3>
+
+                        <p>
+                            Professional construction and planting for
+                            complete outdoor transformations.
+                        </p>
+                    </div>
+
+
+                    <div class="concept-card">
+                        <h3>
+                            Outdoor Spaces
+                        </h3>
+
+                        <p>
+                            Functional entertaining and living spaces
+                            made for everyday use.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="evergreen-about"
+                 class="concept-section">
+
+            <div class="concept-section-inner">
+
+                <h2>
+                    Designed with nature in mind.
+                </h2>
+
+                <p>
+                    Evergreen Landscapes focuses on creating outdoor spaces
+                    that feel natural, practical and timeless.
+                    Every project is approached with attention to detail.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section id="evergreen-gallery"
+                 class="concept-section">
+
+            <div class="concept-section-inner">
+
+                <h2>
+                    Our visual direction.
+                </h2>
+
+                <div class="concept-gallery">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1200&q=80"
+                        alt="Landscape"
+                    >
+
+                    <img
+                        src="https://images.unsplash.com/photo-1558521958-0a228e77e984?auto=format&fit=crop&w=900&q=80"
+                        alt="Garden"
+                    >
+
+                    <img
+                        src="https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=900&q=80"
+                        alt="Outdoor garden"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="evergreen-contact"
+                 class="concept-section">
+
+            <div class="concept-cta">
+
+                <h2>
+                    Ready to transform your outdoor space?
+                </h2>
+
+                <p>
+                    Tell us about your project and let's make a plan.
+                </p>
+
+                <a
+                    href="mailto:SummitDigitalmelborne@proton.me"
+                    class="btn concept-btn">
+                    Get in touch
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <footer class="concept-footer">
+            Evergreen Landscapes — Website Concept
+        </footer>
+
+    </div>
+
+
+    <!-- NORTH & CO -->
+
+    <div id="north" class="project-content">
+
+        <nav class="concept-nav">
+
+            <a href="#"
+               class="concept-brand"
+               onclick="showMainSite(); return false;">
+                North & Co.
+            </a>
+
+            <ul class="concept-links">
+
+                <li>
+                    <a href="#"
+                       class="back-link"
+                       onclick="showMainSite(); return false;">
+                        ← Back
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#north-home">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#north-services">
+                        Menu
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#north-about">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#north-gallery">
+                        Gallery
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#north-contact">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <section id="north-home"
+                 class="concept-hero">
+
+            <div class="concept-hero-text">
+
+                <small>
+                    Website Concept
+                </small>
+
+                <h1>
+                    Good coffee.
+                    Good company.
+                </h1>
+
+                <p>
+                    North & Co. is a neighbourhood cafe serving quality
+                    coffee, fresh food and a relaxed atmosphere.
+                </p>
+
+                <a href="#north-contact"
+                   class="btn concept-btn">
+                    Visit us
+                </a>
+
+            </div>
+
+
+            <img
+                class="concept-image"
+                src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1400&q=80"
+                alt="Cafe"
+            >
+
+        </section>
+
+
+        <section id="north-services"
+                 class="concept-section">
+
+            <div class="concept-section-inner">
+
+                <h2>
+                    Something for
+                    every morning.
+                </h2>
+
+                <p>
+                    From your first coffee of the day to a long lunch with
+                    friends, North & Co. keeps things simple and welcoming.
+                </p>
+
+
+                <div class="concept-cards">
+
+                    <div class="concept-card">
+                        <h3>
+                            Specialty Coffee
+                        </h3>
+
+                        <p>
+                            Carefully prepared coffee made with quality beans.
+                        </p>
+                    </div>
+
+
+                    <div class="concept-card">
+                        <h3>
+                            Fresh Food
+                        </h3>
+
+                        <p>
+                            Simple, fresh meals made for breakfast and lunch.
+                        </p>
+                    </div>
+
+
+                    <div class="concept-card">
+                        <h3>
+                            Private Events
+                        </h3>
+
+                        <p>
+                            A relaxed space for gatherings and celebrations.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="north-about"
+                 class="concept-section">
+
+            <div class="concept-section-inner">
+
+                <h2>
+                    Your local place to slow down.
+                </h2>
+
+                <p>
+                    North & Co. was created around good coffee, good food
+                    and the simple idea that a cafe should feel like part
+                    of the neighbourhood.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section id="north-gallery"
+                 class="concept-section">
+
+            <div class="concept-section-inner">
+
+                <h2>
+                    A taste of North & Co.
+                </h2>
+
+                <div class="concept-gallery">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80"
+                        alt="Coffee"
+                    >
+
+                    <img
+                        src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80"
+                        alt="Coffee cup"
+                    >
+
+                    <img
+                        src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=80"
+                        alt="Cafe interior"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="north-contact"
+                 class="concept-section">
+
+            <div class="concept-cta">
+
+                <h2>
+                    Come grab a coffee.
+                </h2>
+
+                <p>
+                    We'd love to see you.
+                </p>
+
+                <a
+                    href="mailto:SummitDigitalmelborne@proton.me"
+                    class="btn concept-btn">
+                    Contact us
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <footer class="concept-footer">
+            North & Co. Cafe — Website Concept
+        </footer>
+
+    </div>
+
+
+    <!-- FRAME STUDIO -->
+
+    <div id="frame" class="project-content">
+
+        <nav class="concept-nav">
+
+            <a href="#"
+               class="concept-brand"
+               onclick="showMainSite(); return false;">
+                Frame Studio
+            </a>
+
+            <ul class="concept-links">
+
+                <li>
+                    <a href="#"
+                       class="back-link"
+                       onclick="showMainSite(); return false;">
+                        ← Back
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#frame-home">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#frame-services">
+                        Services
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#frame-about">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#frame-gallery">
+                        Work
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#frame-contact">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <section id="frame-home"
+                 class="concept-hero">
+
+            <div class="concept-hero-text">
+
+                <small>
+                    Website Concept
+                </small>
+
+                <h1>
+                    Stories worth
+                    remembering.
+                </h1>
+
+                <p>
+                    Frame Studio creates modern photography and visual
+                    content for people, brands and businesses.
+                </p>
+
+                <a href="#frame-contact"
+                   class="btn concept-btn">
+                    Book a shoot
+                </a>
+
+            </div>
+
+
+            <img
+                class="concept-image"
+                src="https://images.unsplash.com/photo-1452780212940-6f5c0d14d848?auto=format&fit=crop&w=1400&q=80"
+                alt="Photography"
+            >
+
+        </section>
+
+
+        <section id="frame-services"
+                 class="concept-section">
+
+            <div class="concept-section-inner">
+
+                <h2>
+                    Visuals that
+                    make an impact.
+                </h2>
+
+                <p>
+                    From portraits to commercial campaigns, Frame Studio
+                    creates photography designed to tell a story.
+                </p>
+
+
+                <div class="concept-cards">
+
+                    <div class="concept-card">
+                        <h3>
+                            Portraits
+                        </h3>
+
+                        <p>
+                            Natural, modern portraits for individuals,
+                            creators and professionals.
+                        </p>
+                    </div>
+
+
+                    <div class="concept-card">
+                        <h3>
+                            Commercial
+                        </h3>
+
+                        <p>
+                            Photography created to help brands present
+                            themselves professionally.
+                        </p>
+                    </div>
+
+
+                    <div class="concept-card">
+                        <h3>
+                            Events
+                        </h3>
+
+                        <p>
+                            Authentic photography that captures important
+                            moments as they happen.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="frame-about"
+                 class="concept-section">
+
+            <div class="concept-section-inner">
+
+                <h2>
+                    Creative without
+                    overcomplicating it.
+                </h2>
+
+                <p>
+                    Frame Studio focuses on natural photography, strong
+                    composition and images that feel authentic.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section id="frame-gallery"
+                 class="concept-section">
+
+            <div class="concept-section-inner">
+
+                <h2>
+                    Selected work.
+                </h2>
+
+                <div class="concept-gallery">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1452780212940-6f5c0d14d848?auto=format&fit=crop&w=1200&q=80"
+                        alt="Photography work"
+                    >
+
+                    <img
+                        src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=900&q=80"
+                        alt="Camera"
+                    >
+
+                    <img
+                        src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
+                        alt="Photography"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="frame-contact"
+                 class="concept-section">
+
+            <div class="concept-cta">
+
+                <h2>
+                    Let's create something.
+                </h2>
+
+                <p>
+                    Have a project in mind? Let's talk.
+                </p>
+
+                <a
+                    href="mailto:SummitDigitalmelborne@proton.me"
+                    class="btn concept-btn">
+                    Get in touch
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <footer class="concept-footer">
+            Frame Studio — Website Concept
+        </footer>
+
+    </div>
+
+
+    <!-- APEX PROJECTS -->
+
+    <div id="apex" class="project-content">
+
+        <nav class="concept-nav">
+
+            <a href="#"
+               class="concept-brand"
+               onclick="showMainSite(); return false;">
+                Apex Projects
+            </a>
+
+            <ul class="concept-links">
+
+                <li>
+                    <a href="#"
+                       class="back-link"
+                       onclick="showMainSite(); return false;">
+                        ← Back
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#apex-home">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#apex-services">
+                        Services
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#apex-about">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#apex-gallery">
+                        Projects
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#apex-contact">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <section id="apex-home"
+                 class="concept-hero">
+
+            <div class="concept-hero-text">
+
+                <small>
+                    Website Concept
+                </small>
+
+                <h1>
+                    Built properly.
+                    Built to last.
+                </h1>
+
+                <p>
+                    Apex Projects delivers reliable construction and
+                    renovation work with a focus on quality and detail.
+                </p>
+
+                <a href="#apex-contact"
+                   class="btn concept-btn">
+                    Request a quote
+                </a>
+
+            </div>
+
+
+            <img
+                class="concept-image"
+                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=80"
+                alt="Construction"
+            >
+
+        </section>
+
+
+        <section id="apex-services"
+                 class="concept-section">
+
+            <div class="concept-section-inner">
+
+                <h2>
+                    Quality work.
+                    Clear process.
+                </h2>
+
+                <p>
+                    Apex Projects provides dependable construction services
+                    from smaller renovations through to larger projects.
+                </p>
+
+
+                <div class="concept-cards">
+
+                    <div class="concept-card">
+
+                        <h3>
+                            Renovations
+                        </h3>
+
+                        <p>
+                            Practical renovations designed around how
+                            you want your space to work.
+                        </p>
+
+                    </div>
+
+
+                    <div class="concept-card">
+
+                        <h3>
+                            Construction
+                        </h3>
+
+                        <p>
+                            Professional construction with attention
+                            to quality and detail.
+                        </p>
+
+                    </div>
+
+
+                    <div class="concept-card">
+
+                        <h3>
+                            Project Management
+                        </h3>
+
+                        <p>
+                            A clear process from planning through
+                            to completion.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="apex-about"
+                 class="concept-section">
+
+            <div class="concept-section-inner">
+
+                <h2>
+                    Built around
+                    doing things right.
+                </h2>
+
+                <p>
+                    Apex Projects believes good construction comes down
+                    to quality workmanship, clear communication and
+                    attention to the details.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section id="apex-gallery"
+                 class="concept-section">
+
+            <div class="concept-section-inner">
+
+                <h2>
+                    Recent projects.
+                </h2>
+
+                <div class="concept-gallery">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80"
+                        alt="Construction project"
+                    >
+
+                    <img
+                        src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80"
+                        alt="Architecture"
+                    >
+
+                    <img
+                        src="https://images.unsplash.com/photo-1504150558240-0b4fd8946624?auto=format&fit=crop&w=900&q=80"
+                        alt="Building project"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="apex-contact"
+                 class="concept-section">
+
+            <div class="concept-cta">
+
+                <h2>
+                    Have a project in mind?
+                </h2>
+
+                <p>
+                    Tell us what you're planning and we'll take it from there.
+                </p>
+
+                <a
+                    href="mailto:SummitDigitalmelborne@proton.me"
+                    class="btn concept-btn">
+                    Request a quote
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <footer class="concept-footer">
+            Apex Projects — Website Concept
+        </footer>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    const mainSite = document.getElementById("main-site");
+    const projectPage = document.getElementById("project-page");
+
+
+    function openProject(projectName) {
+
+        mainSite.classList.add("hidden");
+
+        projectPage.classList.add("active");
+
+
+        const pages =
+            document.querySelectorAll(".project-content");
+
+
+        pages.forEach(function(page) {
+            page.classList.remove("active");
+        });
+
+
+        const selectedProject =
+            document.getElementById(projectName);
+
+
+        if (selectedProject) {
+            selectedProject.classList.add("active");
+        }
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "instant"
+        });
+
+    }
+
+
+    function showMainSite() {
+
+        projectPage.classList.remove("active");
+
+        mainSite.classList.remove("hidden");
+
+
+        const pages =
+            document.querySelectorAll(".project-content");
+
+
+        pages.forEach(function(page) {
+            page.classList.remove("active");
+        });
+
+
+        history.pushState(
+            {},
+            "",
+            window.location.pathname
+        );
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+
+    function showConcepts() {
+
+        projectPage.classList.remove("active");
+
+        mainSite.classList.remove("hidden");
+
+
+        const pages =
+            document.querySelectorAll(".project-content");
+
+
+        pages.forEach(function(page) {
+            page.classList.remove("active");
+        });
+
+
+        history.pushState(
+            {},
+            "",
+            window.location.pathname + "#projects"
+        );
+
+
+        setTimeout(function() {
+
+            document
+                .getElementById("projects")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+
+        }, 50);
+
+    }
+
+
+    async function handleFormSubmit(event) {
+
+        event.preventDefault();
+
+
+        const form = event.target;
+
+        const button =
+            document.getElementById("submit-button");
+
+        const result =
+            document.getElementById("form-result");
+
+
+        button.disabled = true;
+
+        button.textContent = "Sending...";
+
+        result.textContent = "";
+
+
+        const formData =
+            new FormData(form);
+
+
+        try {
+
+            const response =
+                await fetch(
+                    "https://api.web3forms.com/submit",
+                    {
+                        method: "POST",
+                        body: formData
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (data.success) {
+
+                result.textContent =
+                    "Thanks! Your enquiry has been sent successfully.";
+
+                form.reset();
+
+            } else {
+
+                result.textContent =
+                    "Something went wrong. Please try again.";
+
+            }
+
+        } catch (error) {
+
+            result.textContent =
+                "Unable to send your enquiry. Please try again.";
+
+        }
+
+
+        button.disabled = false;
+
+        button.textContent = "Send Enquiry";
+
+    }
+
+
+    window.addEventListener("popstate", function() {
+
+        if (window.location.hash === "#projects") {
+
+            showConcepts();
+
+        } else {
+
+            showMainSite();
+
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
