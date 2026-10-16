@@ -998,3 +998,92 @@
                 src="Construction.jpg"
                 alt="Apex Projects"
             >
+
+            <div class="concept-hero-content">
+
+                <h1>
+                    Apex<br>
+                    Projects
+                </h1>
+
+                <p>
+                    Construction & project delivery
+                </p>
+
+            </div>
+
+        </div>
+
+        <section>
+
+            <div class="concept-content">
+
+                <h2>
+                    Built to withstand.
+                </h2>
+
+                <p>
+                    A robust, professional website concept for construction and trades businesses.
+                </p>
+
+                <div class="gallery">
+
+                    <img src="Construction.jpg" alt="Construction site">
+                    <img src="Construction.jpg" alt="Construction crew">
+                    <img src="Construction.jpg" alt="Heavy machinery">
+                    <img src="Construction.jpg" alt="Finished project">
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+    <!-- Interaction script: show/hide pages -->
+    <script>
+      function showMainSite() {
+        const main = document.getElementById('main-site');
+        if (main) main.style.display = 'block';
+        document.querySelectorAll('.concept-page').forEach(p => p.style.display = 'none');
+        // update URL hash to none
+        if (history && history.replaceState) history.replaceState(null, '', window.location.pathname);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function openProject(id) {
+        const main = document.getElementById('main-site');
+        if (main) main.style.display = 'none';
+
+        document.querySelectorAll('.concept-page').forEach(p => p.style.display = 'none');
+        const page = document.getElementById(id);
+        if (page) {
+          page.style.display = 'block';
+          // push hash for navigation
+          if (history && history.replaceState) history.replaceState(null, '', '#' + id);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          console.warn('Project page not found:', id);
+        }
+      }
+
+      // Make sure the initial state is correct and support deep links to a concept page
+      document.addEventListener('DOMContentLoaded', () => {
+        const hash = (window.location.hash || '').replace('#', '');
+        if (hash) {
+          // If the hash matches a concept page, open it
+          const target = document.getElementById(hash);
+          if (target && target.classList.contains('concept-page')) {
+            document.getElementById('main-site').style.display = 'none';
+            target.style.display = 'block';
+            window.scrollTo({ top: 0 });
+            return;
+          }
+        }
+        showMainSite();
+      });
+    </script>
+
+</body>
+</html>
