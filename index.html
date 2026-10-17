@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Summit Digital | Digital Solutions</title>
+    <title>Summit Digital Australia | Digital Solutions</title>
 
-    <meta name="description" content="Summit Digital creates modern websites and digital solutions for businesses.">
+    <meta name="description" content="Summit Digital Australia creates modern websites and digital solutions for businesses.">
 
     <style>
         * {
@@ -484,7 +484,7 @@
     <nav>
 
         <a href="#" class="logo" onclick="showMainSite()">
-            Summit<span>Digital</span>
+            Summit <span>Digital Australia</span>
         </a>
 
         <ul>
@@ -527,7 +527,7 @@
                 </h1>
 
                 <p>
-                    Summit Digital creates modern, high-performance
+                    Summit Digital Australia creates modern, high-performance
                     websites and digital experiences for ambitious businesses.
                 </p>
 
@@ -599,7 +599,7 @@
                 </h2>
 
                 <p>
-                    Summit Digital is focused on creating digital experiences
+                    Summit Digital Australia is focused on creating digital experiences
                     that help businesses stand out.
                 </p>
 
@@ -731,7 +731,7 @@
                 <p>
                     Have a project in mind?
                     Send us a message and let's talk about how
-                    Summit Digital can help.
+                    Summit Digital Australia can help.
                 </p>
 
                 <p class="contact-email">
@@ -753,13 +753,13 @@
                     <input
                         type="hidden"
                         name="subject"
-                        value="New Summit Digital Website Enquiry"
+                        value="New Summit Digital Australia Website Enquiry"
                     >
 
                     <input
                         type="hidden"
                         name="from_name"
-                        value="Summit Digital Website"
+                        value="Summit Digital Australia Website"
                     >
 
                     <input
@@ -798,7 +798,7 @@
         <footer>
 
             <div>
-                © 2026 Summit Digital
+                © 2026 Summit Digital Australia
             </div>
 
             <div>
@@ -999,105 +999,3 @@
         id="apex"
         class="concept-page"
     >
-
-        <div
-            class="back-button"
-            onclick="showMainSite()"
-        >
-            ← Back to Projects
-        </div>
-
-        <div class="concept-hero">
-
-            <img
-                src="Construction.jpg"
-                alt="Apex Projects"
-            >
-
-            <div class="concept-hero-content">
-
-                <h1>
-                    Apex<br>
-                    Projects
-                </h1>
-
-                <p>
-                    Construction & project delivery
-                </p>
-
-            </div>
-
-        </div>
-
-        <section>
-
-            <div class="concept-content">
-
-                <h2>
-                    Built to withstand.
-                </h2>
-
-                <p>
-                    A robust, professional website concept for construction and trades businesses.
-                </p>
-
-                <div class="gallery">
-
-                    <img src="Construction.jpg" alt="Construction site">
-                    <img src="Construction.jpg" alt="Construction crew">
-                    <img src="Construction.jpg" alt="Heavy machinery">
-                    <img src="Construction.jpg" alt="Finished project">
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </section>
-
-    <!-- Interaction script: show/hide pages -->
-    <script>
-        function showMainSite() {
-            const main = document.getElementById('main-site');
-            if (main) main.style.display = 'block';
-            document.querySelectorAll('.concept-page').forEach(p => p.style.display = 'none');
-            // update URL hash to none
-            if (history && history.replaceState)
-                history.replaceState(null, '', window.location.pathname);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function openProject(id) {
-            const main = document.getElementById('main-site');
-            if (main) main.style.display = 'none';
-            document.querySelectorAll('.concept-page').forEach(p => p.style.display = 'none');
-            const page = document.getElementById(id);
-            if (page) {
-                page.style.display = 'block';
-                // push hash for navigation
-                if (history && history.replaceState)
-                    history.replaceState(null, '', '#' + id);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                console.warn('Project page not found:', id);
-            }
-        }
-
-        // Make sure the initial state is correct and support deep links to a concept page
-        document.addEventListener('DOMContentLoaded', () => {
-            const hash = (window.location.hash || '').replace('#', '');
-            if (hash) {
-                const target = document.getElementById(hash);
-                if (target && target.classList.contains('concept-page')) {
-                    document.getElementById('main-site').style.display = 'none';
-                    target.style.display = 'block';
-                    window.scrollTo({ top: 0 });
-                    return;
-                }
-            }
-            showMainSite();
-        });
-    </script>
-</body>
-</html>
