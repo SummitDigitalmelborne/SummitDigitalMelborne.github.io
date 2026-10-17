@@ -256,6 +256,17 @@
             margin-bottom: 30px;
         }
 
+        .contact-email {
+            margin-top: 20px;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .contact-email a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
         form {
             display: grid;
             gap: 15px;
@@ -723,6 +734,10 @@
                     Summit Digital can help.
                 </p>
 
+                <p class="contact-email">
+                    Email: <a href="mailto:SummitDigitalAustralia@proton.me">SummitDigitalAustralia@proton.me</a>
+                </p>
+
                 <form
                     action="https://api.web3forms.com/submit"
                     method="POST"
@@ -1043,47 +1058,46 @@
 
     <!-- Interaction script: show/hide pages -->
     <script>
-      function showMainSite() {
-        const main = document.getElementById('main-site');
-        if (main) main.style.display = 'block';
-        document.querySelectorAll('.concept-page').forEach(p => p.style.display = 'none');
-        // update URL hash to none
-        if (history && history.replaceState) history.replaceState(null, '', window.location.pathname);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-
-      function openProject(id) {
-        const main = document.getElementById('main-site');
-        if (main) main.style.display = 'none';
-
-        document.querySelectorAll('.concept-page').forEach(p => p.style.display = 'none');
-        const page = document.getElementById(id);
-        if (page) {
-          page.style.display = 'block';
-          // push hash for navigation
-          if (history && history.replaceState) history.replaceState(null, '', '#' + id);
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-          console.warn('Project page not found:', id);
+        function showMainSite() {
+            const main = document.getElementById('main-site');
+            if (main) main.style.display = 'block';
+            document.querySelectorAll('.concept-page').forEach(p => p.style.display = 'none');
+            // update URL hash to none
+            if (history && history.replaceState)
+                history.replaceState(null, '', window.location.pathname);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-      }
 
-      // Make sure the initial state is correct and support deep links to a concept page
-      document.addEventListener('DOMContentLoaded', () => {
-        const hash = (window.location.hash || '').replace('#', '');
-        if (hash) {
-          // If the hash matches a concept page, open it
-          const target = document.getElementById(hash);
-          if (target && target.classList.contains('concept-page')) {
-            document.getElementById('main-site').style.display = 'none';
-            target.style.display = 'block';
-            window.scrollTo({ top: 0 });
-            return;
-          }
+        function openProject(id) {
+            const main = document.getElementById('main-site');
+            if (main) main.style.display = 'none';
+            document.querySelectorAll('.concept-page').forEach(p => p.style.display = 'none');
+            const page = document.getElementById(id);
+            if (page) {
+                page.style.display = 'block';
+                // push hash for navigation
+                if (history && history.replaceState)
+                    history.replaceState(null, '', '#' + id);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                console.warn('Project page not found:', id);
+            }
         }
-        showMainSite();
-      });
+
+        // Make sure the initial state is correct and support deep links to a concept page
+        document.addEventListener('DOMContentLoaded', () => {
+            const hash = (window.location.hash || '').replace('#', '');
+            if (hash) {
+                const target = document.getElementById(hash);
+                if (target && target.classList.contains('concept-page')) {
+                    document.getElementById('main-site').style.display = 'none';
+                    target.style.display = 'block';
+                    window.scrollTo({ top: 0 });
+                    return;
+                }
+            }
+            showMainSite();
+        });
     </script>
-
 </body>
 </html>
